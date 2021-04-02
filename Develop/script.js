@@ -1,13 +1,14 @@
 var saveBtn = $('.saveBtn');
 
+// How can I target Awesom Font icons seperately? i.e I also want a delete from local storage
 // Handle displaying the time - Finally have the countdown working
 var rightNow = function () {
     $("#currentDay").text(moment().format('MMM Do YYYY, h:mm:ss a'));
 }
 setInterval(rightNow, 1000);
 
-// For sorting the rows if you want to drag meetings around
-    // $("#sortable").children(".textarea").sortable({
+// COULD NOT GET THIS TO WORK - For sorting the rows if you want to drag meetings around
+    // $("#sortable").children(".row").children(".textarea").sortable({
     //     placeholder:'ui-state-highlight', 
     // });
 
@@ -64,6 +65,3 @@ function timeChange() {
     })
 }
 timeChange(); 
-// $(".saveBtn").on("click", function()
-
-// Give each hour an ID and target with time.
