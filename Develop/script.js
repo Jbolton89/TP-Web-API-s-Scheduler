@@ -11,12 +11,13 @@ setInterval(rightNow, 1000);
     //     placeholder:'ui-state-highlight', 
     // });
 
-$(".saveBtn").on('click', function () {
-    var jobs = $(this).siblings('.textarea').val();
+saveBtn.on('click', function () {
+    console.log(this);
+    var jobs = $(this).siblings('.col-sm-10').val();
     var time = $(this).parent().attr('id');
 
-    localStorage.setItem(jobs, time);
-    console.log(jobs, time);
+    localStorage.setItem(time, jobs);
+    console.log(time, jobs);
 })
 
 $('#hour7 .textarea').val(localStorage.getItem('hour7'));
@@ -37,12 +38,32 @@ $('#hour21 .textarea').val(localStorage.getItem('hour21'));
 $('#hour22 .textarea').val(localStorage.getItem('hour22'));
 
 function timeChange() { 
+
+    var momentTime = moment().hour();
+
     $(".row").each(function (){
         var timeBlock = parseInt($(this).attr("id").split('hour')[1]);
-        console.log(timeBlock, rightNow)
+        console.log(timeBlock, momentTime); 
+
+        if (timeBlock > momentTime) {
+            console.log(this);
+            $(this).children('textarea').addClass('future');
+            $(this).children('textarea').removeClass('past');
+            $(this).children('textarea').removeClass('present');
+        }
+        else if (timeBlock < momentTime) {
+            $(this).children('textarea').addClass('past');
+            $(this).children('textarea').removeClass('future');
+            $(this).children('textarea').removeClass('present');
+        }
+        else {
+            $(this).children('textarea').addClass('present');
+            $(this).children('textarea').removeClass('past');
+            $(this).children('textarea').removeClass('future');
+        }
     })
 }
-
+timeChange(); 
 // $(".saveBtn").on("click", function()
 
 // Give each hour an ID and target with time.
