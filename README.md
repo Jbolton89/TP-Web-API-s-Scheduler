@@ -8,6 +8,9 @@ A simple calendar application that allows a user to save events for each hour of
 
 Moment.js, JQuery, BootStrap, JavaScript, CSS, HTMl 
 
+## Link to live site 
+
+https://jbolton89.github.io/TP-Web-API-s-Scheduler/
 
 # Sample Image
-![alt text](assets/Scheduler.jpg)
+![alt text](./assets/images/Scheduler.JPG)
